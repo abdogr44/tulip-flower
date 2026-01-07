@@ -293,9 +293,37 @@ export default function Gallery({ items }: Props) {
             <button
               type="button"
               onClick={closeItem}
-              className="absolute left-4 top-4 rounded-full border border-black/10 bg-white/90 px-3 py-1 text-sm text-black/70"
+              className="absolute left-4 top-4 z-20 rounded-full border border-black/10 bg-white/90 px-3 py-1 text-sm text-black/70 hover:bg-white transition"
+              aria-label="إغلاق"
             >
               إغلاق
+            </button>
+
+            {/* Image Counter */}
+            <div className="absolute right-4 top-4 z-20 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur-sm">
+              {selectedIndex + 1} / {filteredItems.length}
+            </div>
+
+            {/* Large Arrow Navigation Buttons - Desktop/Tablet Only */}
+            <button
+              type="button"
+              onClick={goPrev}
+              className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 h-12 w-12 items-center justify-center rounded-full bg-white/90 text-tulip-ink shadow-lg backdrop-blur-sm transition hover:bg-white hover:scale-110"
+              aria-label="الصورة السابقة"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 h-12 w-12 items-center justify-center rounded-full bg-white/90 text-tulip-ink shadow-lg backdrop-blur-sm transition hover:bg-white hover:scale-110"
+              aria-label="الصورة التالية"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
             <div
               className={`relative h-[65vh] w-full overflow-hidden bg-black/5 transition-colors ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
@@ -316,33 +344,40 @@ export default function Gallery({ items }: Props) {
                 blurDataURL={activeItem.blurDataURL}
               />
             </div>
-            <div className="space-y-4 px-6 py-6">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-tulip-ink">
+            <div className="space-y-4 px-4 py-4 sm:px-6 sm:py-6">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex-1">
+                  <h3 className="text-base font-semibold text-tulip-ink sm:text-lg">
                     {activeItem.title_ar}
                   </h3>
                   <p className="text-sm text-black/50">{activeItem.location_ar}</p>
                 </div>
-                <div className="flex gap-2">
+
+                {/* Navigation Controls - Optimized for Mobile */}
+                <div className="flex flex-wrap gap-2">
                   <button
                     type="button"
                     onClick={toggleZoom}
-                    className="rounded-full border border-tulip-red bg-white px-4 py-2 text-sm font-medium text-tulip-red hover:bg-tulip-red hover:text-white transition"
+                    className="flex-1 sm:flex-none rounded-full border border-tulip-red bg-white px-4 py-2 text-sm font-medium text-tulip-red hover:bg-tulip-red hover:text-white transition"
+                    aria-label={isZoomed ? 'تصغير الصورة' : 'تكبير الصورة'}
                   >
                     {isZoomed ? 'تصغير' : 'تكبير'}
                   </button>
+
+                  {/* Mobile Navigation Buttons */}
                   <button
                     type="button"
                     onClick={goPrev}
-                    className="rounded-full border border-black/10 px-4 py-2 text-sm text-black/70 hover:border-tulip-red transition"
+                    className="md:hidden flex-1 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/70 hover:border-tulip-red hover:text-tulip-red transition"
+                    aria-label="الصورة السابقة"
                   >
                     السابق
                   </button>
                   <button
                     type="button"
                     onClick={goNext}
-                    className="rounded-full border border-black/10 px-4 py-2 text-sm text-black/70 hover:border-tulip-red transition"
+                    className="md:hidden flex-1 rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/70 hover:border-tulip-red hover:text-tulip-red transition"
+                    aria-label="الصورة التالية"
                   >
                     التالي
                   </button>
