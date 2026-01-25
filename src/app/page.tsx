@@ -78,6 +78,77 @@ export default async function Home() {
         </section>
       </div>
 
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16">
+        <div className="rounded-3xl border border-black/5 bg-white p-8 shadow-soft md:p-12">
+          <h2 className="mb-6 text-2xl font-semibold text-tulip-ink md:text-3xl">
+            مشروع مصنع فايبر توليب
+          </h2>
+
+          <div className="space-y-6 text-lg leading-relaxed text-black/70">
+            <p>
+              مشروع انشاء مصنع فايبر لتصنيع الاحواض للاشجار وفازات الورد والطاولات وبعض الديكورات
+            </p>
+
+            <p>
+              وفكرة المشروع تتمحور حول التصنيع المحلي مع استراد المواد الخامة من الخارج
+            </p>
+
+            <div className="mt-8">
+              <h3 className="mb-4 text-xl font-semibold text-tulip-ink">
+                تكلفة المشروع تنقسم إلى 3 أقسام:
+              </h3>
+
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-tulip-green/20 bg-tulip-green/5 p-6">
+                  <h4 className="mb-2 font-semibold text-tulip-ink">
+                    1) مواد تشغيلية خام
+                  </h4>
+                  <p className="text-black/70">
+                    من دول الجوار ومواد خام من دولة الصين
+                  </p>
+                  <p className="mt-2 text-xl font-bold text-tulip-green">
+                    التكلفة: تقريبا 150,000 دولار
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-tulip-orange/20 bg-tulip-orange/5 p-6">
+                  <h4 className="mb-2 font-semibold text-tulip-ink">
+                    2) مواد محلية طبيعية وأدوات مصنعية
+                  </h4>
+                  <p className="mt-2 text-xl font-bold text-tulip-orange">
+                    التكلفة: تقريبا 20,000 دولار
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-tulip-red/20 bg-tulip-red/5 p-6">
+                  <h4 className="mb-2 font-semibold text-tulip-ink">
+                    3) صالة عرض في مكان تجاري
+                  </h4>
+                  <p className="text-black/70">
+                    ويمكن فتح فروع في مناطق خارج طرابلس
+                  </p>
+                  <p className="mt-2 text-lg font-semibold text-tulip-red">
+                    التكلفة تعتمد على المكان والديكور وهي على أسعار حسب السوق المحلي
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-gradient-to-br from-tulip-green/10 to-tulip-red/10 p-6 md:p-8">
+              <h3 className="mb-4 text-xl font-semibold text-tulip-ink">
+                ميزة التصنيع المحلي
+              </h3>
+              <p className="text-black/70">
+                تقليل مصاريف الشحن العالية وزيادة في هامش الربح حيث يصل هامش الربح بعد التصنيع المحلي إلى
+                <span className="mx-2 font-bold text-tulip-green">300%</span>
+                وفي بعض الأصناف إلى
+                <span className="mr-2 font-bold text-tulip-red">500%</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {
         items.length > 0 ? (
           <Gallery items={items} />
