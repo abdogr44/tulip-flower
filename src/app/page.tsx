@@ -6,7 +6,34 @@ import { WHATSAPP_NUMBER } from '@/lib/constants';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 export default async function Home() {
-  const items = await readGalleryManifest();
+  let items = await readGalleryManifest();
+
+  // Custom Sort Order
+  const categoryOrder = [
+    'أشجار كبيرة',
+    'نباتات صغيرة',
+    'طاولات',
+    'خشبيات',
+    'ديكور'
+  ];
+
+  items.sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a.category_ar);
+    const indexB = categoryOrder.indexOf(b.category_ar);
+
+    // If both are in the priority list, sort by index
+    if (indexA !== -1 && indexB !== -1) {
+      return indexA - indexB;
+    }
+
+    // If only A is in list, it comes first
+    if (indexA !== -1) return -1;
+    // If only B is in list, it comes first
+    if (indexB !== -1) return 1;
+
+    // Default sort or keep original order
+    return 0;
+  });
 
   return (
     <main className="min-h-screen">

@@ -7,8 +7,11 @@ import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const CATEGORY_FILTERS = [
   { label: 'الكل', value: 'all' },
-  { label: 'أشجار', value: 'أشجار' },
-  { label: 'زهور', value: 'زهور' },
+  { label: 'أشجار كبيرة', value: 'أشجار كبيرة' },
+  { label: 'نباتات صغيرة', value: 'نباتات صغيرة' },
+  { label: 'طاولات', value: 'طاولات' },
+  { label: 'خشبيات', value: 'خشبيات' },
+  { label: 'ديكور', value: 'ديكور' },
   { label: 'أحواض', value: 'أحواض' },
   { label: 'جدار أخضر', value: 'جدار أخضر' },
   { label: 'خارجي', value: 'خارجي' },
